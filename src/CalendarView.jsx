@@ -248,25 +248,29 @@ const CalendarView = forwardRef(function CalendarView({ todos, courseMap, mode, 
   );
 
   // Dashboard: the toolbar sits on the page above the card, laid out like the task list's, so the
-  // list/calendar switch that leads it (toolbarStart) is in the same place in both views. It wraps
-  // when the Today panel narrows the column, and the title shortens rather than breaking.
+  // list/calendar switch that leads it (toolbarStart) is in the same place in both views. Month /
+  // Week / Day always stays on the first line, at the right. As the Today panel narrows the column,
+  // the title shortens (and truncates before it would push anything over); once even the short one
+  // doesn't fit, the arrows and title move to a line of their own below.
   if (toolbarStart) {
     const navButton = "grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-slate-200 bg-white text-slate-500 transition-colors hover:border-slate-300 hover:text-slate-700";
     return (
       <div className="flex h-full flex-col">
         <div className="mb-2 flex shrink-0 flex-wrap items-center gap-2">
           {toolbarStart}
-          <div className="flex shrink-0 items-center gap-1">
-            <button type="button" onClick={() => ref.current?.shift(-1)} className={navButton} aria-label="Previous"><ChevronLeftIcon className="h-3.5 w-3.5" /></button>
-            <button type="button" onClick={goToToday} className="h-7 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300">Today</button>
-            <button type="button" onClick={() => ref.current?.shift(1)} className={navButton} aria-label="Next"><ChevronRightIcon className="h-3.5 w-3.5" /></button>
+          {/* Takes what's left of the line (basis 0, so it never wraps the line by itself), or all of the second */}
+          <div className="flex flex-1 basis-0 items-center gap-2 @max-[33rem]:order-last @max-[33rem]:basis-full">
+            <div className="flex shrink-0 items-center gap-1">
+              <button type="button" onClick={() => ref.current?.shift(-1)} className={navButton} aria-label="Previous"><ChevronLeftIcon className="h-3.5 w-3.5" /></button>
+              <button type="button" onClick={goToToday} className="h-7 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300">Today</button>
+              <button type="button" onClick={() => ref.current?.shift(1)} className={navButton} aria-label="Next"><ChevronRightIcon className="h-3.5 w-3.5" /></button>
+            </div>
+            <h2 className="min-w-0 truncate px-1 text-sm font-semibold whitespace-nowrap text-slate-800" title={title}>
+              <span className="@max-[39rem]:hidden">{title}</span>
+              <span className="hidden @max-[39rem]:inline">{shortTitle}</span>
+            </h2>
           </div>
-          <h2 className="min-w-0 truncate px-1 text-sm font-semibold whitespace-nowrap text-slate-800" title={title}>
-            <span className="@max-[36rem]:hidden">{title}</span>
-            <span className="hidden @max-[36rem]:inline">{shortTitle}</span>
-          </h2>
-          {/* Right-aligned when it shares the line; when the row wraps, it starts its own line at the left */}
-          <div className="ml-auto @max-[40rem]:ml-0">{modeSwitch}</div>
+          <div className="ml-auto shrink-0">{modeSwitch}</div>
         </div>
         <div className="mobile-calendar-shell flex min-h-0 flex-1 flex-col rounded-sheet border border-slate-200 bg-white p-4 shadow-sm" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           {emptyNote}

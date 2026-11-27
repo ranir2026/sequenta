@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import AuthScreen from "./AuthScreen";
 import LoadingScreen from "./LoadingScreen";
 
@@ -95,11 +95,15 @@ describe("Create account", () => {
 });
 
 describe("Forgot password", () => {
-  beforeEach(() => vi.stubEnv("VITE_PASSWORD_RESET", "on"));
   afterEach(() => vi.unstubAllEnvs());
 
-  it("is hidden until an email provider is set up", () => {
-    vi.stubEnv("VITE_PASSWORD_RESET", "");
+  it("is on sign in without any setting", () => {
+    render(<AuthScreen />);
+    expect(screen.getByRole("button", { name: "Forgot password?" })).toBeTruthy();
+  });
+
+  it("is hidden when switched off, for a project without an email provider", () => {
+    vi.stubEnv("VITE_PASSWORD_RESET", "off");
     render(<AuthScreen />);
     expect(screen.queryByRole("button", { name: "Forgot password?" })).toBeNull();
   });

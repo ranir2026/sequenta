@@ -1,6 +1,6 @@
 # sequenta
 
-**Live demo:** https://ranir2026.github.io/TodoApp
+**Live demo:** https://ranir2026.github.io/sequenta
 
 The app works locally with browser storage. To enable cross-device sync:
 
@@ -43,7 +43,7 @@ Create a production build with `npm run build`, check code quality with `npm run
 
 ## Canvas import
 
-Signed-in users can connect Canvas from the Canvas card in the right column (Profile on mobile). It was first tested at `/TodoApp/admin/`; the build still copies the page there so old links keep working, but that copy is now the same as the main page.
+Signed-in users can connect Canvas from the Canvas card in the right column (Profile on mobile). It was first tested at `/TodoApp/admin/` (the repo's old name; now `/sequenta/admin/`); the build still copies the page there so old links keep working, but that copy is now the same as the main page.
 
 Students connect their Canvas **calendar feed** link (Canvas, then Calendar, then Calendar Feed). The link is a secret, so it's stored only in the user's own `app_state` row (not in localStorage), is shown masked, and is sent only to the `canvas-feed` Edge Function, which fetches and parses the feed server-side. The design and what Canvas's feed really contains are in `CANVAS_INTEGRATION.md`.
 

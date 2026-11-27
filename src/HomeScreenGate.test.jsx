@@ -76,7 +76,7 @@ describe("The Home Screen gate", () => {
     });
 
     it("never hands an email link's sign-in tokens to Safari or the clipboard", async () => {
-      window.history.replaceState({}, "", "/TodoApp/#access_token=secret&type=signup");
+      window.history.replaceState({}, "", "/sequenta/#access_token=secret&type=signup");
       onBrowser(IPHONE_CHROME);
       const writeText = vi.fn().mockResolvedValue();
       withClipboard(writeText);
@@ -85,7 +85,7 @@ describe("The Home Screen gate", () => {
       expect(screen.getByRole("link", { name: "Open in Safari" }).getAttribute("href")).not.toContain("secret");
       fireEvent.click(screen.getByRole("button", { name: "Copy link" }));
       expect(await screen.findByText("Now paste it into Safari.")).toBeTruthy();
-      expect(writeText).toHaveBeenCalledWith(`${window.location.origin}/TodoApp/`);
+      expect(writeText).toHaveBeenCalledWith(`${window.location.origin}/sequenta/`);
       expect(screen.getByRole("button", { name: "Link copied" })).toBeTruthy();
     });
 

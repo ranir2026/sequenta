@@ -75,10 +75,10 @@ describe("homeScreenPrompt", () => {
 });
 
 describe("Links to this page", () => {
-  const location = new URL("https://example.com/TodoApp/?code=abc#access_token=secret&type=signup");
+  const location = new URL("https://example.com/sequenta/?code=abc#access_token=secret&type=signup");
 
   it("leave out what's after ? and #, where an email link puts sign-in tokens", () => {
-    expect(pageLink(location)).toBe("https://example.com/TodoApp/");
-    expect(safariLink(location)).toBe("x-safari-https://example.com/TodoApp/");
+    expect(pageLink(location)).toBe("https://example.com/sequenta/");
+    expect(safariLink(location)).toBe("x-safari-https://example.com/sequenta/");
   });
 });

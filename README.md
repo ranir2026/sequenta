@@ -1,4 +1,4 @@
-# Todo App
+# sequenta
 
 **Live demo:** https://ranir2026.github.io/TodoApp
 
@@ -20,11 +20,11 @@ On the first sign-in, existing local todos and courses are uploaded when the acc
 
 When the app is shared more widely, turn email on:
 
-1. **Email sender.** In Authentication, Emails, SMTP Settings, add a provider (Resend, Brevo, Postmark, Amazon SES or similar), with "Todo" as the sender name. Most need a domain you own to send from.
+1. **Email sender.** In Authentication, Emails, SMTP Settings, add a provider (Resend, Brevo, Postmark, Amazon SES or similar), with "sequenta" as the sender name. Most need a domain you own to send from.
 2. **Email wording.** In Authentication, Emails, Templates, paste `supabase/templates/confirm-signup.html` into "Confirm signup" and `supabase/templates/reset-password.html` into "Reset password". The subject line is at the top of each file.
 3. **Links.** In Authentication, URL Configuration, the Site URL is the app's public address (the same as `VITE_APP_URL`), and it's in Redirect URLs. Password reset links come back to the same address as confirmation links, so nothing else is needed.
 4. **Switch it on.** Turn "Confirm email" back on, add `VITE_PASSWORD_RESET=on` to `.env.local`, and deploy.
-5. **Test on a fresh address:** create an account, open the email, the link lands on "Email confirmed", "Open Todo" opens the app signed in, and signing in before confirming offers "Send the link again". Then "Forgot password?", open that email, choose a new password, and sign in with it.
+5. **Test on a fresh address:** create an account, open the email, the link lands on "Email confirmed", "Open sequenta" opens the app signed in, and signing in before confirming offers "Send the link again". Then "Forgot password?", open that email, choose a new password, and sign in with it.
 
 Privacy and your data (under the account box on a computer, Profile then Help on a phone) says what's stored, why, and who can see it, and has Delete account. Until step 1 is run, Delete account says it isn't switched on yet.
 

@@ -43,7 +43,7 @@ export default function NewPasswordScreen({ email, onDone }) {
       <div className="w-full max-w-sm">
         <div className="auth-rise flex items-center justify-center gap-3">
           <BrandMark size={44} />
-          <span className="text-lg font-semibold tracking-tight text-slate-900">Todo</span>
+          <span className="text-lg font-semibold tracking-tight text-slate-900">sequenta</span>
         </div>
         <section className="auth-card auth-rise mt-8 rounded-dialog p-7" style={{ "--rise-delay": "80ms" }}>
           {saved ? (
@@ -55,12 +55,12 @@ export default function NewPasswordScreen({ email, onDone }) {
               </div>
               <h1 className="mt-5 text-xl font-semibold text-slate-900">Password changed</h1>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">Use it the next time you sign in, on any device.</p>
-              <button type="button" onClick={onDone} className={`${PRIMARY} mt-6`}>Open Todo</button>
+              <button type="button" onClick={onDone} className={`${PRIMARY} mt-6`}>Open sequenta</button>
             </div>
           ) : (
             <form onSubmit={submit} noValidate aria-labelledby={id("heading")}>
               <h1 id={id("heading")} className="text-xl font-semibold text-slate-900">Choose a new password</h1>
-              <p className="mt-1 text-sm break-words text-slate-500">{email ? <>For <span className="font-medium text-slate-700">{email}</span>.</> : "For your Todo account."}</p>
+              <p className="mt-1 text-sm break-words text-slate-500">{email ? <>For <span className="font-medium text-slate-700">{email}</span>.</> : "For your sequenta account."}</p>
               {/* For password managers: which account this new password belongs to */}
               {email && <input type="email" name="email" autoComplete="username" value={email} readOnly hidden />}
               <div className="mt-5">

@@ -1124,7 +1124,7 @@ export default function App() {
       <aside className="no-scrollbar flex w-72 shrink-0 flex-col gap-3 overflow-y-auto pb-2 pr-1">
         {/* The one place the date is said: it answers "where am I" for the whole dashboard */}
         <header className="pt-1 leading-none">
-          <h1 className="sr-only">Todo</h1>
+          <h1 className="sr-only">sequenta</h1>
           <p className="text-3xl font-medium tracking-tight text-slate-900">{dayName}</p>
           <p className="mt-1.5 text-base font-semibold text-slate-500">{monthDate}</p>
         </header>

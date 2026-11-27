@@ -22,7 +22,7 @@ export function isIphoneSafari(userAgent) {
   return isIphone(userAgent) && /Version\/[\d.]+.*Safari\//.test(userAgent) && !OTHER_IPHONE_BROWSERS.test(userAgent);
 }
 
-// On an iPhone, Todo is used from the Home Screen, so a browser tab shows something else in its place:
+// On an iPhone, sequenta is used from the Home Screen, so a browser tab shows something else in its place:
 // in Safari, how to add it to the Home Screen ("add"); in any other browser, a way over to Safari,
 // where that's done ("open-in-safari"). null everywhere else.
 export function homeScreenPrompt(win = window) {

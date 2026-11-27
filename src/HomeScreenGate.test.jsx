@@ -44,13 +44,13 @@ describe("The Home Screen gate", () => {
   it("in Safari on an iPhone, shows how to add it to the Home Screen and keeps the app out of reach", () => {
     onBrowser(IPHONE_SAFARI);
     renderGate();
-    expect(screen.getByRole("heading", { name: "Add Todo to your Home Screen" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Add sequenta to your Home Screen" })).toBeTruthy();
     expect(screen.getByText(/works better outside Safari/)).toBeTruthy();
     const steps = screen.getAllByRole("listitem").map((step) => step.textContent);
     expect(steps).toEqual([
       expect.stringContaining("Tap Share"),
       expect.stringContaining("Tap Add to Home Screen"),
-      expect.stringContaining("Open Todo from your Home Screen"),
+      expect.stringContaining("Open sequenta from your Home Screen"),
     ]);
     // Still running, so it keeps syncing, but nothing in it can be seen or used
     expect(appIsHidden()).toBe(true);
@@ -69,7 +69,7 @@ describe("The Home Screen gate", () => {
     it("sends them to Safari, or to a computer, and keeps the app out of reach", () => {
       onBrowser(IPHONE_CHROME);
       renderGate();
-      expect(screen.getByRole("heading", { name: "Open Todo in Safari" })).toBeTruthy();
+      expect(screen.getByRole("heading", { name: "Open sequenta in Safari" })).toBeTruthy();
       expect(screen.getByText(/on the web from a computer/)).toBeTruthy();
       expect(screen.getByRole("link", { name: "Open in Safari" }).getAttribute("href")).toBe(`x-safari-http://${window.location.host}/`);
       expect(appIsHidden()).toBe(true);

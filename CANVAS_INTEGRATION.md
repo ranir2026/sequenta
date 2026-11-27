@@ -164,7 +164,7 @@ Only build this if users ask for auto-complete. It sits on top of the iCal base;
 - Edge Functions use **GET only, to an allowlist of Canvas paths** (`/users/self`, `/courses`, `/planner/items`), with the same SSRF protections and per-user rate limits as above.
 - Planner items carry submission flags (`submitted`, `late`, `missing`, `excused`); add a `submitted` signal to reconcile: auto-complete, never auto-uncomplete, and do not re-complete after the user un-completes.
 - **Tokens expire (30 days at the user's school, enforced).** Store the connection date and an entered expiry, warn a few days before it lapses, make renewal one tap (domain prefilled, token field focused), and on a 401 mark the connection `needs_reconnect` without deleting any data. A renewed token reattaches to existing ids and does not re-run course matching.
-- Tell users plainly what a token can access, recommend an expiry date and the name "Todo app", and explain how to revoke it in Canvas (Settings, Approved Integrations) on disconnect.
+- Tell users plainly what a token can access, recommend an expiry date and the name "sequenta", and explain how to revoke it in Canvas (Settings, Approved Integrations) on disconnect.
 - Verify the exact API shapes against real data first. Never ask for a token in chat or put one in the repo; use environment variables in the user's own terminal.
 
 ## Out of scope for v1

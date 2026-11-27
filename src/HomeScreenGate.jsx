@@ -45,7 +45,7 @@ function PromptScreen({ title, emailConfirmed, children }) {
       <div className="w-full max-w-sm">
         <div className="auth-rise flex items-center justify-center gap-3">
           <BrandMark size={44} />
-          <span className="text-lg font-semibold tracking-tight text-slate-900">Todo</span>
+          <span className="text-lg font-semibold tracking-tight text-slate-900">sequenta</span>
         </div>
         <section className="auth-card auth-rise mt-8 rounded-dialog p-7" style={{ "--rise-delay": "80ms" }} aria-labelledby={headingId}>
           {emailConfirmed && (
@@ -66,8 +66,8 @@ function PromptScreen({ title, emailConfirmed, children }) {
 
 export function AddToHomeScreen({ emailConfirmed = false }) {
   return (
-    <PromptScreen title="Add Todo to your Home Screen" emailConfirmed={emailConfirmed}>
-      <p className="mt-2 text-sm leading-relaxed text-slate-500">Todo works better outside Safari: from your Home Screen, or on the web from a computer.</p>
+    <PromptScreen title="Add sequenta to your Home Screen" emailConfirmed={emailConfirmed}>
+      <p className="mt-2 text-sm leading-relaxed text-slate-500">sequenta works better outside Safari: from your Home Screen, or on the web from a computer.</p>
       <ol className="mt-6 space-y-5">
         <Step number={1} hint="Don't see it? Tap ••• first.">
           Tap Share <ShareIcon />
@@ -77,14 +77,14 @@ export function AddToHomeScreen({ emailConfirmed = false }) {
           Tap Add to Home <span className="whitespace-nowrap">Screen <AddIcon /></span>
         </Step>
         <Step number={3} hint={emailConfirmed ? "Then sign in there." : undefined}>
-          Open Todo from your Home Screen
+          Open sequenta from your Home Screen
         </Step>
       </ol>
     </PromptScreen>
   );
 }
 
-// Other iPhone browsers can't be relied on to add Todo to the Home Screen, so this sends people to Safari.
+// Other iPhone browsers can't be relied on to add sequenta to the Home Screen, so this sends people to Safari.
 // The button asks the phone to open the page there; copying the link covers the browsers and apps
 // that won't hand it over.
 export function OpenInSafari({ emailConfirmed = false }) {
@@ -101,8 +101,8 @@ export function OpenInSafari({ emailConfirmed = false }) {
   }
 
   return (
-    <PromptScreen title="Open Todo in Safari" emailConfirmed={emailConfirmed}>
-      <p className="mt-2 text-sm leading-relaxed text-slate-500">To use Todo on iPhone, open it in Safari and add it to your Home Screen. Or use it on the web from a computer.</p>
+    <PromptScreen title="Open sequenta in Safari" emailConfirmed={emailConfirmed}>
+      <p className="mt-2 text-sm leading-relaxed text-slate-500">To use sequenta on iPhone, open it in Safari and add it to your Home Screen. Or use it on the web from a computer.</p>
       <a href={safariLink()} className={`${PRIMARY} mt-6`}>Open in Safari</a>
       <button type="button" onClick={copyLink} className={`${SECONDARY} mt-2`}>{copy === "copied" ? "Link copied" : "Copy link"}</button>
       <p aria-live="polite" className="mt-2 text-center text-sm leading-snug text-slate-500 empty:mt-0">

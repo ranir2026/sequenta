@@ -337,7 +337,7 @@ export default function AuthScreen({ notice = null }) {
         <section className="auth-rise text-center lg:text-left">
           <div className="flex items-center justify-center gap-3 lg:justify-start">
             <BrandMark size={44} />
-            <span className="text-lg font-semibold tracking-tight text-slate-900">Todo</span>
+            <span className="text-lg font-semibold tracking-tight text-slate-900">sequenta</span>
           </div>
           <h1 className="mx-auto mt-6 max-w-md text-[1.75rem] leading-tight font-medium tracking-[-0.025em] text-balance text-slate-900 lg:mx-0 lg:mt-10 lg:text-5xl lg:leading-[1.05]">
             Every deadline, in one calm list.

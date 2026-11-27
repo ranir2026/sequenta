@@ -41,7 +41,7 @@ export default function PrivacyDialog({ open, mobile = false, email, canDelete, 
     : "rounded-lg px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100";
 
   return (
-    <InfoDialog open={open} mobile={mobile} title="Privacy and your data" subtitle="What Todo keeps, why, and how to delete it." onClose={close} width="max-w-xl">
+    <InfoDialog open={open} mobile={mobile} title="Privacy and your data" subtitle="What sequenta keeps, why, and how to delete it." onClose={close} width="max-w-xl">
       <div className={mobile ? "space-y-5" : "space-y-5"}>
         <Section title="What's stored" mobile={mobile}>
           <p>Your email address, and your password in a form that can't be read back. Your tasks, events, categories, day plans, projects and quick links.</p>
@@ -51,7 +51,7 @@ export default function PrivacyDialog({ open, mobile = false, email, canDelete, 
           <p>So your list is the same on every device you sign in on. This device also keeps a copy so the app opens quickly and keeps working offline.</p>
         </Section>
         <Section title="Who can see it" mobile={mobile}>
-          <p>Only you. Each account's data is kept in its own row, and the database lets an account read and change only its own. The Canvas feed link is shown masked and is only ever sent to Todo's server to fetch your feed.</p>
+          <p>Only you. Each account's data is kept in its own row, and the database lets an account read and change only its own. The Canvas feed link is shown masked and is only ever sent to sequenta's server to fetch your feed.</p>
         </Section>
         <Section title="Deleting it" mobile={mobile}>
           <p>Delete tasks, categories and projects one at a time anywhere in the app. A deleted project is kept in Recently deleted, at the bottom of the timeline, for 30 days so it can be restored, then it's gone; delete it there to remove it sooner. Disconnect Canvas from its settings, and choose whether its assignments go too.</p>

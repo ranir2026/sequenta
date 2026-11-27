@@ -39,7 +39,7 @@ describe("NewPasswordScreen", () => {
     save();
     expect(await screen.findByText("Password changed")).toBeTruthy();
     expect(auth.updateUser).toHaveBeenCalledWith({ password: "a-better-password" });
-    fireEvent.click(screen.getByRole("button", { name: "Open Todo" }));
+    fireEvent.click(screen.getByRole("button", { name: "Open sequenta" }));
     expect(onDone).toHaveBeenCalled();
   });
 

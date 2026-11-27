@@ -54,7 +54,7 @@ describe("isIphoneSafari", () => {
 });
 
 describe("homeScreenPrompt", () => {
-  it("shows a Safari tab on an iPhone how to add Todo to the Home Screen", () => {
+  it("shows a Safari tab on an iPhone how to add sequenta to the Home Screen", () => {
     expect(homeScreenPrompt(browser())).toBe("add");
   });
 

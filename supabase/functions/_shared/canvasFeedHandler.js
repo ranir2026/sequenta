@@ -7,6 +7,8 @@ import { parseCanvasFeed } from "./canvasFeedParse.js";
 import { validateFeedUrl } from "./canvasFeedUrl.js";
 
 export const DEFAULT_ALLOWED_ORIGINS = [
+  "https://sequenta.me",
+  // Before the custom domain; it redirects to sequenta.me now
   "https://ranir2026.github.io",
   "http://localhost:5173",
   "http://127.0.0.1:5173",

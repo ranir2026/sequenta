@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 
-// Canvas import was first tested at /admin/ (under the repo's old name, TodoApp). It's on the main page
-// now, and this copy of the page stays only so links saved during testing still open the app. (GitHub Pages serves
+// Canvas import was first tested at /admin/ (at github.io, under the repo's old name, TodoApp). It's on the
+// main page now, and this copy of the page stays only so links saved during testing still open the app. (GitHub Pages serves
 // only files that exist; assets are linked from the base path, so the copy works unchanged.)
 function adminPage() {
   return {
@@ -23,7 +23,8 @@ function adminPage() {
 export default defineConfig({
   plugins: [react(), tailwindcss(), adminPage()],
   envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
-  base: '/sequenta/',
+  // Served from the root of sequenta.me (public/CNAME keeps the custom domain set on every deploy)
+  base: '/',
   test: {
     include: ['src/**/*.test.{js,jsx}', 'supabase/functions/**/*.test.js'],
     environment: 'node',

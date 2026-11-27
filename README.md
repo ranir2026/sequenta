@@ -1,6 +1,6 @@
 # sequenta
 
-**Live demo:** https://ranir2026.github.io/sequenta
+**Live:** https://sequenta.me
 
 The app works locally with browser storage. To enable cross-device sync:
 
@@ -43,7 +43,7 @@ Create a production build with `npm run build`, check code quality with `npm run
 
 ## Canvas import
 
-Signed-in users can connect Canvas from the Canvas card in the right column (Profile on mobile). It was first tested at `/TodoApp/admin/` (the repo's old name; now `/sequenta/admin/`); the build still copies the page there so old links keep working, but that copy is now the same as the main page.
+Signed-in users can connect Canvas from the Canvas card in the right column (Profile on mobile). It was first tested at `/TodoApp/admin/` on github.io (the repo's old name; now `sequenta.me/admin/`); the build still copies the page there so old links keep working, but that copy is now the same as the main page.
 
 Students connect their Canvas **calendar feed** link (Canvas, then Calendar, then Calendar Feed). The link is a secret, so it's stored only in the user's own `app_state` row (not in localStorage), is shown masked, and is sent only to the `canvas-feed` Edge Function, which fetches and parses the feed server-side. The design and what Canvas's feed really contains are in `CANVAS_INTEGRATION.md`.
 
@@ -69,6 +69,6 @@ The feed link, course choices and imported assignments are stored only in the st
 1. Run the Canvas statements from `supabase-schema.sql` in the Supabase SQL editor: the `canvas` column and the `canvas_feed_requests` rate-limit table and `canvas_feed_allow()` function.
 2. Sign in to the Supabase CLI once: `npx supabase login`.
 3. Deploy: `npx supabase functions deploy canvas-feed --project-ref <your project ref>` (the ref is the subdomain of your Supabase URL). `supabase/config.toml` sets `verify_jwt = false` for it because the function checks the caller's sign-in itself, which works with both old and new Supabase signing keys.
-4. Optional: if the app is served from somewhere other than `https://ranir2026.github.io` or localhost, set the allowed origins: `npx supabase secrets set ALLOWED_ORIGINS=https://your.site --project-ref <ref>`.
+4. Optional: if the app is served from somewhere other than `https://sequenta.me`, `https://ranir2026.github.io` or localhost, set the allowed origins: `npx supabase secrets set ALLOWED_ORIGINS=https://your.site --project-ref <ref>`.
 
 The function needs no other secrets: it uses the `SUPABASE_URL` Supabase provides, and the app's own public key from the request. It accepts only `https` links shaped like `/feeds/calendars/*.ics` on public hostnames, never follows redirects, times out after 10 seconds, caps feeds at 3 MB, allows 30 fetches per user per 10 minutes, and returns error codes only, so the link never appears in responses or logs.

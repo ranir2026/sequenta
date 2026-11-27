@@ -275,6 +275,8 @@ describe("canvas-feed handler", () => {
     const ok = await handle(request(null, { method: "OPTIONS" }));
     expect(ok.status).toBe(204);
     expect(ok.headers.get("access-control-allow-origin")).toBe(ORIGIN);
+    const site = await handle(request(null, { method: "OPTIONS", origin: "https://sequenta.me" }));
+    expect(site.headers.get("access-control-allow-origin")).toBe("https://sequenta.me");
     const other = await handle(request(null, { method: "OPTIONS", origin: "https://evil.example.com" }));
     expect(other.headers.get("access-control-allow-origin")).toBeNull();
   });
